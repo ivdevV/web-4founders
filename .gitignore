@@ -1,0 +1,10 @@
+node_modules/
+server/node_modules/
+.env
+.DS_Store
+.thumbnail
+screenshots/
+Web 4Founders Studio/
+Guía Práctica 4Founders Studio/
+*.log
+missions/**/artifacts/

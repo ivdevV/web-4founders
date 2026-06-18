@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4Founders Studio — Brand Kit · Identidad Corporativa</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --grafito: #2B2B2B;
+    --champa: #E8D9B0;
+    --champa-dark: #C8B88A;
+    --crema: #F7F4EE;
+    --blanco: #FFFFFF;
+    --text-on-grafito: #E8D9B0;
+    --text-muted-on-grafito: #C8B88A;
+  }
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background: var(--crema);
+    color: var(--grafito);
+    line-height: 1.6;
+  }
+
+  /* PORTADA */
+  .cover {
+    background: var(--grafito);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    page-break-after: always;
+  }
+
+  .cover-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cover-symbol {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--champa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cover-symbol span {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: var(--champa);
+    letter-spacing: -0.5px;
+  }
+
+  .cover-wordmark {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .cover-wordmark .word-4founders {
+    font-family: 'Georgia', serif;
+    font-size: 22px;
+    color: var(--champa);
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+
+  .cover-wordmark .word-studio {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: var(--champa-dark);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .cover-center {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .cover-title {
+    font-family: 'Georgia', serif;
+    font-size: 64px;
+    color: var(--champa);
+    line-height: 1.05;
+    letter-spacing: -1px;
+  }
+
+  .cover-subtitle {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: var(--champa-dark);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .cover-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--champa-dark);
+  }
+
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-footer-left {
+    font-size: 12px;
+    color: var(--champa-dark);
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+
+  .cover-footer-right {
+    font-size: 11px;
+    color: var(--champa-dark);
+    opacity: 0.6;
+    text-align: right;
+    letter-spacing: 0.5px;
+  }
+
+  /* PÁGINAS INTERIORES */
+  .page {
+    background: var(--blanco);
+    min-height: 100vh;
+    padding: 60px;
+    page-break-after: always;
+    position: relative;
+  }
+
+  .page-crema {
+    background: var(--crema);
+  }
+
+  .page-grafito {
+    background: var(--grafito);
+  }
+
+  /* HEADER DE SECCIÓN */
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--champa-dark);
+    margin-bottom: 8px;
+  }
+
+  .section-eyebrow-dark {
+    color: var(--champa-dark);
+  }
+
+  .section-number {
+    font-family: 'Georgia', serif;
+    font-size: 11px;
+    color: var(--champa-dark);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .section-title {
+    font-family: 'Georgia', serif;
+    font-size: 36px;
+    color: var(--grafito);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .section-title-light {
+    color: var(--champa);
+  }
+
+  .section-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--champa-dark);
+    margin: 20px 0 40px;
+  }
+
+  /* MINI HEADER EN ESQUINA */
+  .page-brand {
+    position: absolute;
+    top: 30px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.4;
+  }
+
+  .page-brand-symbol {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--grafito);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-brand-symbol span {
+    font-family: 'Georgia', serif;
+    font-size: 7px;
+    color: var(--grafito);
+  }
+
+  .page-brand-name {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grafito);
+  }
+
+  .page-brand-light .page-brand-symbol { border-color: var(--champa-dark); }
+  .page-brand-light .page-brand-symbol span { color: var(--champa-dark); }
+  .page-brand-light .page-brand-name { color: var(--champa-dark); }
+
+  /* LOGO SECTION */
+  .logo-display {
+    display: flex;
+    gap: 0;
+    margin-bottom: 48px;
+  }
+
+  .logo-variant {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    min-height: 200px;
+    gap: 24px;
+  }
+
+  .logo-variant-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: auto;
+  }
+
+  .logo-variant-grafito { background: var(--grafito); }
+  .logo-variant-crema { background: var(--crema); }
+  .logo-variant-blanco { background: var(--blanco); border: 0.5px solid #e0ddd7; }
+
+  .logo-inline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-circle-champa { background: var(--champa); }
+  .logo-circle-grafito { background: var(--grafito); }
+  .logo-circle-champa-bordered { background: transparent; border: 1.5px solid var(--champa); }
+
+  .logo-circle-champa span { font-family: 'Georgia', serif; font-size: 14px; color: var(--grafito); }
+  .logo-circle-grafito span { font-family: 'Georgia', serif; font-size: 14px; color: var(--champa); }
+  .logo-circle-champa-bordered span { font-family: 'Georgia', serif; font-size: 14px; color: var(--champa); }
+
+  .logo-text .name {
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    line-height: 1;
+    display: block;
+  }
+
+  .logo-text .studio {
+    font-family: 'Arial', sans-serif;
+    font-size: 8.5px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 3px;
+  }
+
+  .on-grafito { color: var(--champa); }
+  .on-grafito .studio { color: var(--champa-dark); }
+  .on-grafito .logo-variant-label { color: var(--champa-dark); }
+
+  .on-crema { color: var(--grafito); }
+  .on-crema .studio { color: var(--champa-dark); }
+  .on-crema .logo-variant-label { color: var(--champa-dark); }
+
+  .on-blanco { color: var(--grafito); }
+  .on-blanco .studio { color: var(--champa-dark); }
+  .on-blanco .logo-variant-label { color: #999; }
+
+  /* NORMAS */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #e0ddd7;
+    border: 1px solid #e0ddd7;
+    margin-top: 40px;
+  }
+
+  .rule-item {
+    background: var(--blanco);
+    padding: 20px 24px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .rule-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .rule-icon.do { background: var(--champa); color: var(--grafito); }
+  .rule-icon.dont { background: #e24b4a; color: #fff; }
+
+  .rule-text {
+    font-size: 13px;
+    color: var(--grafito);
+    line-height: 1.5;
+  }
+
+  /* SÍMBOLO */
+  .symbol-row {
+    display: flex;
+    gap: 0;
+    margin-bottom: 48px;
+  }
+
+  .symbol-variant {
+    flex: 1;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .symbol-large {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .symbol-large span {
+    font-family: 'Georgia', serif;
+    font-size: 28px;
+  }
+
+  .symbol-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .symbol-variant-grafito { background: var(--grafito); }
+  .symbol-variant-grafito .symbol-large { border: 2px solid var(--champa); }
+  .symbol-variant-grafito .symbol-large span { color: var(--champa); }
+  .symbol-variant-grafito .symbol-label { color: var(--champa-dark); }
+
+  .symbol-variant-crema { background: var(--crema); }
+  .symbol-variant-crema .symbol-large { background: var(--grafito); }
+  .symbol-variant-crema .symbol-large span { color: var(--champa); }
+  .symbol-variant-crema .symbol-label { color: var(--champa-dark); }
+
+  .symbol-use-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .symbol-use-item {
+    text-align: center;
+  }
+
+  .symbol-use-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--grafito);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+  }
+
+  .symbol-use-icon span {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    color: var(--champa);
+  }
+
+  .symbol-use-label {
+    font-size: 11px;
+    color: var(--grafito);
+    letter-spacing: 0.5px;
+  }
+
+  /* COLORES */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-bottom: 48px;
+  }
+
+  .color-swatch {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .color-block {
+    height: 160px;
+    position: relative;
+  }
+
+  .color-block-border {
+    border: 0.5px solid #e0ddd7;
+  }
+
+  .color-info {
+    padding: 16px 12px;
+    background: var(--blanco);
+    border: 0.5px solid #e0ddd7;
+    border-top: none;
+  }
+
+  .color-name {
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    color: var(--grafito);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .color-hex {
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .color-use {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .color-tag {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+
+  .tag-primary { background: var(--grafito); color: var(--champa); }
+  .tag-accent { background: var(--champa); color: var(--grafito); }
+  .tag-secondary { background: var(--champa-dark); color: var(--grafito); }
+  .tag-surface { background: var(--crema); color: var(--grafito); border: 0.5px solid #ddd; }
+  .tag-digital { background: #f0f0f0; color: #555; }
+
+  /* TIPOGRAFÍA */
+  .type-display {
+    font-family: 'Georgia', serif;
+    font-size: 72px;
+    color: var(--grafito);
+    line-height: 0.95;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+  }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #e0ddd7;
+    margin-bottom: 40px;
+  }
+
+  .type-panel {
+    background: var(--blanco);
+    padding: 36px;
+  }
+
+  .type-panel-dark {
+    background: var(--grafito);
+  }
+
+  .type-family-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--champa-dark);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .type-family-label-dark {
+    color: var(--champa-dark);
+  }
+
+  .type-specimen-georgia {
+    font-family: 'Georgia', serif;
+    font-size: 40px;
+    color: var(--grafito);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .type-specimen-arial {
+    font-family: 'Arial', sans-serif;
+    font-size: 40px;
+    color: var(--champa);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .type-chars {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+
+  .type-chars-light {
+    color: var(--champa-dark);
+  }
+
+  .type-hierarchy {
+    border-top: 0.5px solid #e0ddd7;
+    padding-top: 20px;
+  }
+
+  .type-hierarchy-dark {
+    border-top-color: #3d3d3d;
+  }
+
+  .type-role {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 0.5px solid #f0ede8;
+  }
+
+  .type-role-dark {
+    border-bottom-color: #3d3d3d;
+  }
+
+  .type-role-name { font-size: 11px; color: #999; letter-spacing: 0.5px; }
+  .type-role-name-light { color: var(--champa-dark); }
+  .type-role-example { font-size: 14px; color: var(--grafito); }
+  .type-role-example-bold { font-weight: 700; }
+  .type-role-example-light-color { color: var(--champa); }
+  .type-role-example-italic { font-style: italic; color: var(--champa); }
+
+  /* APLICACIONES */
+  .apps-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 48px;
+  }
+
+  .apps-table th {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--champa-dark);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--champa-dark);
+    font-weight: 400;
+  }
+
+  .apps-table td {
+    font-size: 13px;
+    color: var(--champa);
+    padding: 16px 16px;
+    border-bottom: 0.5px solid #3d3d3d;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .apps-table td:first-child {
+    color: var(--champa);
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+  }
+
+  .apps-table td.muted { color: var(--champa-dark); font-size: 12px; }
+
+  /* VOZ Y TONO */
+  .tone-attrs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #e0ddd7;
+    margin-bottom: 40px;
+  }
+
+  .tone-attr {
+    background: var(--blanco);
+    padding: 28px 24px;
+  }
+
+  .tone-attr-number {
+    font-family: 'Georgia', serif;
+    font-size: 36px;
+    color: var(--champa-dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .tone-attr-name {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: var(--grafito);
+    margin-bottom: 8px;
+  }
+
+  .tone-attr-desc {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .tone-examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #e0ddd7;
+    margin-bottom: 40px;
+  }
+
+  .tone-col {
+    background: var(--blanco);
+    padding: 28px 24px;
+  }
+
+  .tone-col-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .tone-col-badge {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .badge-yes { background: var(--champa); color: var(--grafito); }
+  .badge-no { background: #e24b4a; color: #fff; }
+
+  .tone-col-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
+
+  .tone-phrase {
+    font-size: 13px;
+    color: var(--grafito);
+    padding: 10px 0;
+    border-bottom: 0.5px solid #f0ede8;
+    line-height: 1.5;
+  }
+
+  .tone-phrase:last-child { border-bottom: none; }
+  .tone-phrase.striked { text-decoration: line-through; color: #bbb; }
+
+  .tagline-box {
+    background: var(--grafito);
+    padding: 48px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .tagline-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--champa-dark);
+    margin-bottom: 16px;
+  }
+
+  .tagline-text {
+    font-family: 'Georgia', serif;
+    font-size: 36px;
+    color: var(--champa);
+    line-height: 1.2;
+  }
+
+  /* REDES SOCIALES */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: #e0ddd7;
+    margin-bottom: 32px;
+  }
+
+  .social-platform {
+    background: var(--blanco);
+    padding: 28px 24px;
+  }
+
+  .social-platform-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .social-platform-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--grafito);
+    flex-shrink: 0;
+  }
+
+  .social-platform-name {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    color: var(--grafito);
+  }
+
+  .social-spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 0.5px solid #f0ede8;
+    font-size: 12px;
+  }
+
+  .social-spec-row:last-child { border-bottom: none; }
+  .social-spec-label { color: #999; }
+  .social-spec-value { color: var(--grafito); font-weight: 500; }
+
+  /* FOOTER DE PÁGINA */
+  .page-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px solid #e0ddd7;
+    padding-top: 12px;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+  }
+
+  .page-footer-dark {
+    border-top-color: #3d3d3d;
+    color: #555;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; }
+    .page, .cover { min-height: 100vh; }
+  }
+
+  @media (max-width: 700px) {
+    .cover { padding: 32px; }
+    .cover-title { font-size: 40px; }
+    .page { padding: 32px 24px; }
+    .color-grid { grid-template-columns: 1fr 1fr; }
+    .tone-attrs { grid-template-columns: 1fr; }
+    .logo-display { flex-direction: column; }
+    .symbol-row { flex-direction: column; }
+    .symbol-use-grid { grid-template-columns: repeat(2, 1fr); }
+    .type-grid { grid-template-columns: 1fr; }
+    .tone-examples { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+    .apps-table { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== PORTADA ===== -->
+<div class="cover">
+  <div class="cover-header">
+    <div class="cover-symbol"><span>4F</span></div>
+    <div class="cover-wordmark">
+      <span class="word-4founders">4Founders</span>
+      <span class="word-studio">Studio</span>
+    </div>
+  </div>
+
+  <div class="cover-center">
+    <div class="cover-divider"></div>
+    <h1 class="cover-title">Brand<br>Kit</h1>
+    <p class="cover-subtitle">Guía de Identidad Corporativa · Versión 1.0</p>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-left">
+      Barcelona · 2025<br>
+      España &amp; Latinoamérica<br>
+      www.4founders.studio
+    </div>
+    <div class="cover-footer-right">
+      Confidencial<br>
+      Uso interno y proveedores autorizados
+    </div>
+  </div>
+</div>
+
+<!-- ===== ÍNDICE ===== -->
+<div class="page page-crema" style="padding-bottom: 100px;">
+  <div class="page-brand">
+    <div class="page-brand-symbol"><span>4F</span></div>
+    <span class="page-brand-name">4Founders Studio</span>
+  </div>
+
+  <span class="section-number">00</span>
+  <h2 class="section-title">Índice</h2>
+  <div class="section-rule"></div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #dedad4;">
+    <div style="background: var(--crema); padding: 24px 28px; display: flex; align-items: baseline; gap: 16px;">
+      <span style="font-family: 'Georgia', serif; font-size: 28px; color: var(--champa-dark);">01</span>
+      <div>
+        <p style="font-family: 'Georgia', serif; font-size: 16px; color: var(--grafito);">Logo principal</p>
+        <p style="font-size: 12px; color: #888; margin-top: 2px;">Versiones y normas de uso</p>
+      </div>
+    </div>
+    <div style="background: var(--crema); padding: 24px 28px; display: flex; align-items: baseline; gap: 16px;">
+      <span style="font-family: 'Georgia', serif; font-size: 28px; color: var(--champa-dark);">02</span>
+      <div>
+        <p style="font-family: 'Georgia', serif; font-size: 16px; color: var(--grafito);">Símbolo</p>
+        <p style="font-size: 12px; color: #888; margin-top: 2px;">Uso autónomo y aplicaciones</p>
+      </div>
+    </div>
+    <div style="background: var(--crema); padding: 24px 28px; display: flex; align-items: baseline; gap: 16px;">
+      <span style="font-family: 'Georgia', serif; font-size: 28px; color: var(--champa-dark);">03</span>
+      <div>
+        <p style="font-family: 'Georgia', serif; font-size: 16px; color: var(--grafito);">Paleta de color</p>
+        <p style="font-size: 12px; color: #888; margin-top: 2px;">Cinco tonos corporativos</p>
+      </div>
+    </div>
+    <div style="background: var(--crema); padding: 24px 28px; display: flex; align-items: baseline; gap: 16px;">
+      <span style="font-family: 'Georgia', serif; font-size: 28px; color: var(--champa-dark);">04</span>
+      <div>
+        <p style="font-family: 'Georgia', serif; font-size: 16px; color: var(--grafito);">Tipografía</p>
+        <p style="font-size: 12px; color: #888; margin-top: 2px;">Sistema y jerarquía tipográfica</p>
+      </div>
+    </div>
+    <div style="background: var(--crema); padding: 24px 28px; display: flex; align-items: baseline; gap: 16px;">
+      <span style="font-family: 'Georgia', serif; font-size: 28px; color: var(--champa-dark);">05</span>
+      <div>
+        <p style="font-family: 'Georgia', serif; font-size: 16px; color: var(--grafito);">Voz y tono</p>
+        <p style="font-size: 12px; color: #888; margin-top: 2px;">Atributos, claim y comunicación</p>
+      </div>
+    </div>
+    <div style="background: var(--crema); padding: 24px 28px; display: flex; align-items: baseline; gap: 16px;">
+      <span style="font-family: 'Georgia', serif; font-size: 28px; color: var(--champa-dark);">06</span>
+      <div>
+        <p style="font-family: 'Georgia', serif; font-size: 16px; color: var(--grafito);">Aplicaciones y soportes</p>
+        <p style="font-size: 12px; color: #888; margin-top: 2px;">Documentos, web, tarjeta, email</p>
+      </div>
+    </div>
+    <div style="background: var(--crema); padding: 24px 28px; display: flex; align-items: baseline; gap: 16px;">
+      <span style="font-family: 'Georgia', serif; font-size: 28px; color: var(--champa-dark);">07</span>
+      <div>
+        <p style="font-family: 'Georgia', serif; font-size: 16px; color: var(--grafito);">Redes sociales</p>
+        <p style="font-size: 12px; color: #888; margin-top: 2px;">Especificaciones Instagram y LinkedIn</p>
+      </div>
+    </div>
+    <div style="background: var(--champa); padding: 24px 28px; display: flex; align-items: center; gap: 12px;">
+      <p style="font-size: 12px; color: var(--grafito); line-height: 1.7;">Este Brand Kit es el documento de referencia oficial de 4Founders Studio. Toda comunicación visual debe respetar las directrices aquí establecidas.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>4Founders Studio · Brand Kit v1.0</span>
+    <span>Confidencial</span>
+  </div>
+</div>
+
+<!-- ===== 01 LOGO ===== -->
+<div class="page" style="padding-bottom: 100px;">
+  <div class="page-brand">
+    <div class="page-brand-symbol"><span>4F</span></div>
+    <span class="page-brand-name">4Founders Studio</span>
+  </div>
+
+  <span class="section-number">01</span>
+  <h2 class="section-title">Logo principal</h2>
+  <div class="section-rule"></div>
+
+  <p style="font-size: 14px; color: #555; max-width: 580px; margin-bottom: 40px; line-height: 1.7;">
+    El logo de 4Founders Studio combina el símbolo circular con las iniciales 4F y el nombre completo de la firma en combinación tipográfica serif y versalitas. Ambos elementos funcionan siempre juntos en la versión principal.
+  </p>
+
+  <div class="logo-display">
+    <div class="logo-variant logo-variant-grafito on-grafito">
+      <div class="logo-inline">
+        <div class="logo-circle logo-circle-champa-bordered"><span>4F</span></div>
+        <div class="logo-text">
+          <span class="name on-grafito">4Founders</span>
+          <span class="studio on-grafito">Studio</span>
+        </div>
+      </div>
+      <span class="logo-variant-label">Versión principal · sobre grafito</span>
+    </div>
+    <div class="logo-variant logo-variant-crema on-crema">
+      <div class="logo-inline">
+        <div class="logo-circle logo-circle-grafito"><span>4F</span></div>
+        <div class="logo-text">
+          <span class="name" style="color: var(--grafito);">4Founders</span>
+          <span class="studio" style="color: var(--champa-dark);">Studio</span>
+        </div>
+      </div>
+      <span class="logo-variant-label" style="color: var(--champa-dark);">Documentos y papel · sobre crema</span>
+    </div>
+    <div class="logo-variant logo-variant-blanco on-blanco">
+      <div class="logo-inline">
+        <div class="logo-circle" style="background: var(--grafito);"><span style="font-family: Georgia, serif; font-size: 14px; color: var(--champa);">4F</span></div>
+        <div class="logo-text">
+          <span class="name" style="color: var(--grafito);">4Founders</span>
+          <span class="studio" style="color: var(--champa-dark);">Studio</span>
+        </div>
+      </div>
+      <span class="logo-variant-label" style="color: #bbb;">Uso digital · sobre blanco</span>
+    </div>
+  </div>
+
+  <h3 style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 16px;">Normas de uso</h3>
+  <div class="rules-grid">
+    <div class="rule-item">
+      <div class="rule-icon do">✓</div>
+      <p class="rule-text">Respetar el espacio mínimo alrededor del logo equivalente a la altura de la «F»</p>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon dont">✕</div>
+      <p class="rule-text">No modificar proporciones ni colores del logotipo bajo ningún concepto</p>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon do">✓</div>
+      <p class="rule-text">Usar siempre la versión con contraste adecuado al fondo de aplicación</p>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon dont">✕</div>
+      <p class="rule-text">No aplicar efectos, sombras, contornos ni filtros sobre el logotipo</p>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon do">✓</div>
+      <p class="rule-text">Mantener siempre el símbolo y el nombre juntos en la versión principal</p>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon dont">✕</div>
+      <p class="rule-text">No usar el logo sobre fondos con contraste insuficiente o imágenes complejas</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>4Founders Studio · Brand Kit v1.0</span>
+    <span>01 · Logo principal</span>
+  </div>
+</div>
+
+<!-- ===== 02 SÍMBOLO ===== -->
+<div class="page page-crema" style="padding-bottom: 100px;">
+  <div class="page-brand">
+    <div class="page-brand-symbol"><span>4F</span></div>
+    <span class="page-brand-name">4Founders Studio</span>
+  </div>
+
+  <span class="section-number">02</span>
+  <h2 class="section-title">Símbolo</h2>
+  <div class="section-rule"></div>
+
+  <p style="font-size: 14px; color: #555; max-width: 580px; margin-bottom: 40px; line-height: 1.7;">
+    El símbolo — el círculo con las iniciales 4F — puede utilizarse de forma autónoma en contextos donde el espacio disponible no permite el logo completo: favicon, perfil de redes sociales, sellos y aplicaciones reducidas.
+  </p>
+
+  <div class="symbol-row">
+    <div class="symbol-variant symbol-variant-grafito">
+      <div class="symbol-large">
+        <span>4F</span>
+      </div>
+      <span class="symbol-label">Sobre grafito · versión principal</span>
+    </div>
+    <div class="symbol-variant symbol-variant-crema">
+      <div class="symbol-large">
+        <span>4F</span>
+      </div>
+      <span class="symbol-label" style="color: var(--champa-dark);">Sobre crema · documentos</span>
+    </div>
+  </div>
+
+  <h3 style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin: 40px 0 16px;">Contextos de uso autónomo</h3>
+  <div class="symbol-use-grid">
+    <div class="symbol-use-item">
+      <div class="symbol-use-icon"><span>4F</span></div>
+      <p class="symbol-use-label">Favicon web</p>
+    </div>
+    <div class="symbol-use-item">
+      <div class="symbol-use-icon"><span>4F</span></div>
+      <p class="symbol-use-label">Perfil LinkedIn</p>
+    </div>
+    <div class="symbol-use-item">
+      <div class="symbol-use-icon"><span>4F</span></div>
+      <p class="symbol-use-label">Perfil Instagram</p>
+    </div>
+    <div class="symbol-use-item">
+      <div class="symbol-use-icon"><span>4F</span></div>
+      <p class="symbol-use-label">Pie de página</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>4Founders Studio · Brand Kit v1.0</span>
+    <span>02 · Símbolo</span>
+  </div>
+</div>
+
+<!-- ===== 03 PALETA ===== -->
+<div class="page" style="padding-bottom: 100px;">
+  <div class="page-brand">
+    <div class="page-brand-symbol"><span>4F</span></div>
+    <span class="page-brand-name">4Founders Studio</span>
+  </div>
+
+  <span class="section-number">03</span>
+  <h2 class="section-title">Paleta de color</h2>
+  <div class="section-rule"></div>
+
+  <p style="font-size: 14px; color: #555; max-width: 580px; margin-bottom: 40px; line-height: 1.7;">
+    La paleta corporativa de 4Founders Studio articula cinco tonos que definen la identidad visual de la firma en todos sus soportes. La tensión entre el grafito denso y el champán cálido comunica premiumness, seriedad y accesibilidad de forma simultánea.
+  </p>
+
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="color-block" style="background: #2B2B2B;"></div>
+      <div class="color-info">
+        <span class="color-name">Grafito</span>
+        <span class="color-hex">#2B2B2B</span>
+        <span class="color-use">Color principal. Textos, símbolo sobre fondos claros, fondos formales.</span>
+        <br><span class="color-tag tag-primary">Principal</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background: #E8D9B0;"></div>
+      <div class="color-info">
+        <span class="color-name">Champán</span>
+        <span class="color-hex">#E8D9B0</span>
+        <span class="color-use">Acento principal. Símbolo sobre grafito, títulos destacados, énfasis.</span>
+        <br><span class="color-tag tag-accent">Acento</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background: #C8B88A;"></div>
+      <div class="color-info">
+        <span class="color-name">Champán oscuro</span>
+        <span class="color-hex">#C8B88A</span>
+        <span class="color-use">Subtítulos, líneas separadoras, detalles secundarios.</span>
+        <br><span class="color-tag tag-secondary">Secundario</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block color-block-border" style="background: #F7F4EE;"></div>
+      <div class="color-info">
+        <span class="color-name">Crema</span>
+        <span class="color-hex">#F7F4EE</span>
+        <span class="color-use">Fondos alternativos, filas de tabla, superficies premium.</span>
+        <br><span class="color-tag tag-surface">Superficie</span>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block color-block-border" style="background: #FFFFFF;"></div>
+      <div class="color-info">
+        <span class="color-name">Blanco</span>
+        <span class="color-hex">#FFFFFF</span>
+        <span class="color-use">Fondos digitales, espacio negativo en presentaciones.</span>
+        <br><span class="color-tag tag-digital">Digital</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 16px;">Combinaciones aprobadas</h3>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #e0ddd7;">
+    <div style="background: #2B2B2B; padding: 20px; text-align: center;">
+      <p style="font-family: Georgia, serif; font-size: 18px; color: #E8D9B0;">Aa</p>
+      <p style="font-size: 10px; color: #C8B88A; margin-top: 8px; letter-spacing: 1px;">Grafito · Champán</p>
+    </div>
+    <div style="background: #F7F4EE; padding: 20px; text-align: center;">
+      <p style="font-family: Georgia, serif; font-size: 18px; color: #2B2B2B;">Aa</p>
+      <p style="font-size: 10px; color: #C8B88A; margin-top: 8px; letter-spacing: 1px;">Crema · Grafito</p>
+    </div>
+    <div style="background: #E8D9B0; padding: 20px; text-align: center;">
+      <p style="font-family: Georgia, serif; font-size: 18px; color: #2B2B2B;">Aa</p>
+      <p style="font-size: 10px; color: #7a6a4a; margin-top: 8px; letter-spacing: 1px;">Champán · Grafito</p>
+    </div>
+    <div style="background: #FFFFFF; border: 0.5px solid #e0ddd7; padding: 20px; text-align: center;">
+      <p style="font-family: Georgia, serif; font-size: 18px; color: #2B2B2B;">Aa</p>
+      <p style="font-size: 10px; color: #C8B88A; margin-top: 8px; letter-spacing: 1px;">Blanco · Grafito</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>4Founders Studio · Brand Kit v1.0</span>
+    <span>03 · Paleta de color</span>
+  </div>
+</div>
+
+<!-- ===== 04 TIPOGRAFÍA ===== -->
+<div class="page page-crema" style="padding-bottom: 100px;">
+  <div class="page-brand">
+    <div class="page-brand-symbol"><span>4F</span></div>
+    <span class="page-brand-name">4Founders Studio</span>
+  </div>
+
+  <span class="section-number">04</span>
+  <h2 class="section-title">Tipografía</h2>
+  <div class="section-rule"></div>
+
+  <p style="font-size: 14px; color: #555; max-width: 580px; margin-bottom: 40px; line-height: 1.7;">
+    El sistema tipográfico combina dos fuentes de uso universal, disponibles en todos los sistemas operativos y plataformas de diseño, sin dependencia de licencias externas.
+  </p>
+
+  <div class="type-grid">
+    <div class="type-panel">
+      <span class="type-family-label">Georgia · Serif</span>
+      <p class="type-specimen-georgia" style="color: var(--grafito);">Aa Bb Cc<br>Dd Ee Ff</p>
+      <p class="type-chars">0 1 2 3 4 5 6 7 8 9 · ! ? , . : ;</p>
+      <div class="type-hierarchy">
+        <div class="type-role">
+          <span class="type-role-name">Portadas y títulos</span>
+          <span class="type-role-example type-role-example-bold" style="font-family: Georgia, serif;">4Founders Studio</span>
+        </div>
+        <div class="type-role">
+          <span class="type-role-name">Logo · nombre firma</span>
+          <span class="type-role-example" style="font-family: Georgia, serif; font-size: 16px;">4Founders</span>
+        </div>
+        <div class="type-role">
+          <span class="type-role-name">Citas de impacto</span>
+          <span class="type-role-example type-role-example-italic" style="font-family: Georgia, serif; color: var(--champa-dark);">"Tu negocio, listo."</span>
+        </div>
+        <div class="type-role">
+          <span class="type-role-name">Numeración secciones</span>
+          <span class="type-role-example" style="font-family: Georgia, serif; color: var(--champa-dark);">01 · 02 · 03</span>
+        </div>
+      </div>
+    </div>
+    <div class="type-panel type-panel-dark">
+      <span class="type-family-label type-family-label-dark">Arial · Sans-serif</span>
+      <p class="type-specimen-arial">Aa Bb Cc<br>Dd Ee Ff</p>
+      <p class="type-chars type-chars-light">0 1 2 3 4 5 6 7 8 9 · ! ? , . : ;</p>
+      <div class="type-hierarchy type-hierarchy-dark">
+        <div class="type-role type-role-dark">
+          <span class="type-role-name type-role-name-light">Secciones y subtítulos</span>
+          <span class="type-role-example type-role-example-light-color" style="font-weight: 700;">STUDIO</span>
+        </div>
+        <div class="type-role type-role-dark">
+          <span class="type-role-name type-role-name-light">Cuerpo de texto</span>
+          <span class="type-role-example" style="color: var(--champa); font-size: 13px;">Texto corrido y listas</span>
+        </div>
+        <div class="type-role type-role-dark">
+          <span class="type-role-name type-role-name-light">Versalitas · etiquetas</span>
+          <span class="type-role-example" style="color: var(--champa-dark); font-size: 11px; letter-spacing: 3px;">BRAND KIT</span>
+        </div>
+        <div class="type-role type-role-dark">
+          <span class="type-role-name type-role-name-light">Notas y referencias</span>
+          <span class="type-role-example" style="color: var(--champa-dark); font-size: 11px;">Barcelona · 2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: var(--grafito); padding: 32px 40px; margin-top: 1px;">
+    <p style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--champa-dark); margin-bottom: 16px;">Escala tipográfica recomendada</p>
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; align-items: end;">
+      <div style="text-align: center;">
+        <p style="font-family: Georgia, serif; font-size: 48px; color: var(--champa); line-height: 1;">A</p>
+        <p style="font-size: 10px; color: var(--champa-dark); margin-top: 8px;">48px · Portada</p>
+      </div>
+      <div style="text-align: center;">
+        <p style="font-family: Georgia, serif; font-size: 32px; color: var(--champa); line-height: 1;">A</p>
+        <p style="font-size: 10px; color: var(--champa-dark); margin-top: 8px;">32px · H1</p>
+      </div>
+      <div style="text-align: center;">
+        <p style="font-family: Georgia, serif; font-size: 22px; color: var(--champa); line-height: 1;">A</p>
+        <p style="font-size: 10px; color: var(--champa-dark); margin-top: 8px;">22px · H2</p>
+      </div>
+      <div style="text-align: center;">
+        <p style="font-size: 16px; color: var(--champa); line-height: 1; font-weight: 700;">A</p>
+        <p style="font-size: 10px; color: var(--champa-dark); margin-top: 8px;">16px · Subtítulo</p>
+      </div>
+      <div style="text-align: center;">
+        <p style="font-size: 13px; color: var(--champa); line-height: 1;">A</p>
+        <p style="font-size: 10px; color: var(--champa-dark); margin-top: 8px;">13px · Cuerpo</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>4Founders Studio · Brand Kit v1.0</span>
+    <span>04 · Tipografía</span>
+  </div>
+</div>
+
+<!-- ===== 05 VOZ Y TONO ===== -->
+<div class="page" style="padding-bottom: 100px;">
+  <div class="page-brand">
+    <div class="page-brand-symbol"><span>4F</span></div>
+    <span class="page-brand-name">4Founders Studio</span>
+  </div>
+
+  <span class="section-number">05</span>
+  <h2 class="section-title">Voz y tono</h2>
+  <div class="section-rule"></div>
+
+  <p style="font-size: 14px; color: #555; max-width: 580px; margin-bottom: 40px; line-height: 1.7;">
+    La identidad de 4Founders Studio no es solo visual: es también verbal. La voz de la firma es tan importante como su logo, porque la principal herramienta de venta es la confianza, y la confianza se construye con palabras antes que con imágenes.
+  </p>
+
+  <div class="tagline-box">
+    <p class="tagline-label">Claim principal</p>
+    <p class="tagline-text">Tu negocio, listo para operar.</p>
+  </div>
+
+  <h3 style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 20px;">Tres atributos de comunicación</h3>
+
+  <div class="tone-attrs">
+    <div class="tone-attr">
+      <p class="tone-attr-number">01</p>
+      <p class="tone-attr-name">Directa</p>
+      <p class="tone-attr-desc">Hablamos con claridad. No usamos jerga de consultor ni promesas vagas. Decimos exactamente qué hacemos y qué entrega el cliente al final.</p>
+    </div>
+    <div class="tone-attr">
+      <p class="tone-attr-number">02</p>
+      <p class="tone-attr-name">Cercana</p>
+      <p class="tone-attr-desc">Nos dirigimos al cliente como a un igual. Respetamos su experiencia profesional. No somos académicos ni distantes: somos el socio que necesitaba.</p>
+    </div>
+    <div class="tone-attr">
+      <p class="tone-attr-number">03</p>
+      <p class="tone-attr-name">Ejecutora</p>
+      <p class="tone-attr-desc">No asesoramos desde la distancia. Hacemos. Cada mensaje refuerza que 4Founders Studio no entrega informes: entrega negocios funcionando.</p>
+    </div>
+  </div>
+
+  <h3 style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 16px;">Lo que decimos y lo que no decimos</h3>
+
+  <div class="tone-examples">
+    <div class="tone-col">
+      <div class="tone-col-header">
+        <div class="tone-col-badge badge-yes">✓</div>
+        <span class="tone-col-title">Decimos</span>
+      </div>
+      <div class="tone-phrase">"Te acompañamos desde la idea hasta el primer cliente."</div>
+      <div class="tone-phrase">"En cinco semanas tienes tu negocio listo para operar."</div>
+      <div class="tone-phrase">"Tu marca, tu web y tu estrategia. Todo bajo un criterio."</div>
+      <div class="tone-phrase">"Sin coordinar cinco proveedores. Sin improvisar."</div>
+      <div class="tone-phrase">"Un solo servicio. Un resultado completo."</div>
+    </div>
+    <div class="tone-col">
+      <div class="tone-col-header">
+        <div class="tone-col-badge badge-no">✕</div>
+        <span class="tone-col-title">No decimos</span>
+      </div>
+      <div class="tone-phrase striked">"Te ofrecemos soluciones integrales de consultoría estratégica."</div>
+      <div class="tone-phrase striked">"Nuestro enfoque holístico potencia tu ecosistema emprendedor."</div>
+      <div class="tone-phrase striked">"Te asesoramos en cada etapa de tu journey empresarial."</div>
+      <div class="tone-phrase striked">"Maximizamos el ROI de tu inversión en branding."</div>
+      <div class="tone-phrase striked">"Somos tus partners en la transformación digital."</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>4Founders Studio · Brand Kit v1.0</span>
+    <span>05 · Voz y tono</span>
+  </div>
+</div>
+
+<!-- ===== 06 APLICACIONES ===== -->
+<div class="page page-grafito" style="padding-bottom: 100px;">
+  <div class="page-brand page-brand-light">
+    <div class="page-brand-symbol"><span>4F</span></div>
+    <span class="page-brand-name">4Founders Studio</span>
+  </div>
+
+  <span class="section-number" style="color: var(--champa-dark);">06</span>
+  <h2 class="section-title section-title-light">Aplicaciones y soportes</h2>
+  <div class="section-rule"></div>
+
+  <p style="font-size: 14px; color: var(--champa-dark); max-width: 580px; margin-bottom: 40px; line-height: 1.7;">
+    Especificaciones de uso del logo y el símbolo en cada soporte oficial de la firma.
+  </p>
+
+  <table class="apps-table">
+    <thead>
+      <tr>
+        <th>Soporte</th>
+        <th>Versión de logo</th>
+        <th>Especificaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Documentos y propuestas</td>
+        <td class="muted">Logo completo sobre crema o blanco</td>
+        <td class="muted">Membrete en página 1. Símbolo en pie de página. Fuente cuerpo: Arial 11px.</td>
+      </tr>
+      <tr>
+        <td>Presentaciones</td>
+        <td class="muted">Logo completo sobre grafito</td>
+        <td class="muted">Diapositiva de portada con fondo grafito. Títulos en Georgia. Cuerpo en Arial.</td>
+      </tr>
+      <tr>
+        <td>Tarjeta de visita</td>
+        <td class="muted">Logo completo + símbolo</td>
+        <td class="muted">Anverso: logo completo sobre grafito. Reverso: símbolo 4F centrado sobre champán.</td>
+      </tr>
+      <tr>
+        <td>Firma de email</td>
+        <td class="muted">Logo completo sobre blanco</td>
+        <td class="muted">Altura máxima 40px. Fondo blanco. Arial 12px para datos de contacto.</td>
+      </tr>
+      <tr>
+        <td>Web corporativa</td>
+        <td class="muted">Logo completo + símbolo</td>
+        <td class="muted">Header: logo completo sobre grafito. Favicon: símbolo 32×32px.</td>
+      </tr>
+      <tr>
+        <td>Perfil LinkedIn</td>
+        <td class="muted">Símbolo sobre champán</td>
+        <td class="muted">Imagen de perfil cuadrada 400×400px. Cabecera: 1584×396px, fondo grafito.</td>
+      </tr>
+      <tr>
+        <td>Perfil Instagram</td>
+        <td class="muted">Símbolo sobre grafito</td>
+        <td class="muted">Imagen de perfil circular 320×320px. Feed: paleta grafito y champán.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer page-footer-dark">
+    <span>4Founders Studio · Brand Kit v1.0</span>
+    <span>06 · Aplicaciones y soportes</span>
+  </div>
+</div>
+
+<!-- ===== 07 REDES SOCIALES ===== -->
+<div class="page" style="padding-bottom: 100px;">
+  <div class="page-brand">
+    <div class="page-brand-symbol"><span>4F</span></div>
+    <span class="page-brand-name">4Founders Studio</span>
+  </div>
+
+  <span class="section-number">07</span>
+  <h2 class="section-title">Redes sociales</h2>
+  <div class="section-rule"></div>
+
+  <p style="font-size: 14px; color: #555; max-width: 580px; margin-bottom: 40px; line-height: 1.7;">
+    Instagram y LinkedIn son los dos canales prioritarios de 4Founders Studio. Estas especificaciones garantizan coherencia visual en todos los formatos, tanto en España como en Latinoamérica.
+  </p>
+
+  <div class="social-grid">
+    <div class="social-platform">
+      <div class="social-platform-header">
+        <div class="social-platform-dot"></div>
+        <span class="social-platform-name">Instagram</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Foto de perfil</span>
+        <span class="social-spec-value">320 × 320 px</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Símbolo sobre</span>
+        <span class="social-spec-value">Fondo grafito #2B2B2B</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Post cuadrado</span>
+        <span class="social-spec-value">1080 × 1080 px</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Post vertical (Reels/Stories)</span>
+        <span class="social-spec-value">1080 × 1920 px</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Post horizontal</span>
+        <span class="social-spec-value">1080 × 566 px</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Color de fondo preferido</span>
+        <span class="social-spec-value">Grafito o Crema</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Tipografía en posts</span>
+        <span class="social-spec-value">Georgia (títulos) · Arial (cuerpo)</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Watermark</span>
+        <span class="social-spec-value">Símbolo 4F · esquina inferior derecha</span>
+      </div>
+    </div>
+
+    <div class="social-platform">
+      <div class="social-platform-header">
+        <div class="social-platform-dot"></div>
+        <span class="social-platform-name">LinkedIn</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Foto de perfil</span>
+        <span class="social-spec-value">400 × 400 px</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Símbolo sobre</span>
+        <span class="social-spec-value">Fondo champán #E8D9B0</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Imagen de cabecera</span>
+        <span class="social-spec-value">1584 × 396 px</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Cabecera · fondo</span>
+        <span class="social-spec-value">Grafito con logo completo centrado</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Post imagen</span>
+        <span class="social-spec-value">1200 × 627 px</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Post documento (carrusel)</span>
+        <span class="social-spec-value">1080 × 1080 px por diapositiva</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Color de fondo preferido</span>
+        <span class="social-spec-value">Grafito o Blanco</span>
+      </div>
+      <div class="social-spec-row">
+        <span class="social-spec-label">Tipografía en posts</span>
+        <span class="social-spec-value">Georgia (títulos) · Arial (cuerpo)</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin: 32px 0 16px;">Principios de contenido visual en redes</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: #e0ddd7;">
+    <div style="background: var(--blanco); padding: 20px 24px;">
+      <p style="font-family: Georgia, serif; font-size: 15px; color: var(--grafito); margin-bottom: 8px;">Coherencia de paleta</p>
+      <p style="font-size: 12px; color: #666; line-height: 1.6;">Todo contenido visual usa exclusivamente los cinco colores corporativos. Sin colores externos.</p>
+    </div>
+    <div style="background: var(--blanco); padding: 20px 24px;">
+      <p style="font-family: Georgia, serif; font-size: 15px; color: var(--grafito); margin-bottom: 8px;">Contraste premium</p>
+      <p style="font-size: 12px; color: #666; line-height: 1.6;">Preferir fondos oscuros (grafito) para contenido de marca. Fondos claros (crema) para contenido educativo.</p>
+    </div>
+    <div style="background: var(--blanco); padding: 20px 24px;">
+      <p style="font-family: Georgia, serif; font-size: 15px; color: var(--grafito); margin-bottom: 8px;">Presencia constante</p>
+      <p style="font-size: 12px; color: #666; line-height: 1.6;">El símbolo 4F aparece en todos los posts como watermark. El logo completo solo en portadas y piezas principales.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>4Founders Studio · Brand Kit v1.0</span>
+    <span>07 · Redes sociales</span>
+  </div>
+</div>
+
+<!-- ===== CONTRAPORTADA ===== -->
+<div class="cover" style="justify-content: center; align-items: center; gap: 32px; text-align: center; min-height: 60vh;">
+  <div class="cover-symbol" style="width: 72px; height: 72px; margin: 0 auto;">
+    <span style="font-size: 24px;">4F</span>
+  </div>
+  <div>
+    <p style="font-family: Georgia, serif; font-size: 24px; color: var(--champa); margin-bottom: 6px;">4Founders Studio</p>
+    <p style="font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--champa-dark);">Barcelona · España &amp; Latinoamérica</p>
+  </div>
+  <div class="cover-divider" style="margin: 0 auto;"></div>
+  <p style="font-size: 12px; color: var(--champa-dark); letter-spacing: 1px;">www.4founders.studio</p>
+  <p style="font-size: 10px; color: #555; margin-top: 8px;">Brand Kit v1.0 · 2025 · Confidencial</p>
+</div>
+
+</body>
+</html>

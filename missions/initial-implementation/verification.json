@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "task": "initial-implementation",
+  "checks": [
+    { "name": "server_health", "result": "pass", "detail": "GET /health -> {\"status\":\"ok\"}" },
+    { "name": "routes", "result": "pass", "detail": "/ 200, /guia/ 200" },
+    { "name": "api_lead", "result": "pass", "detail": "POST /api/lead -> {\"ok\":true}" },
+    { "name": "docker_build", "result": "pass", "detail": "docker compose build OK" }
+  ],
+  "evidence": [],
+  "model_tier_used": "standard",
+  "escalations": 0
+}

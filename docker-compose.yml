@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - N8N_CONTACT_WEBHOOK=${N8N_CONTACT_WEBHOOK:-}
+      - N8N_LEAD_WEBHOOK=${N8N_LEAD_WEBHOOK:-}
+    env_file:
+      - .env
