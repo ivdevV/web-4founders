@@ -7,5 +7,9 @@ services:
       - NODE_ENV=development
       - N8N_CONTACT_WEBHOOK=${N8N_CONTACT_WEBHOOK:-}
       - N8N_LEAD_WEBHOOK=${N8N_LEAD_WEBHOOK:-}
+      - BLOG_PUBLISH_SECRET=${BLOG_PUBLISH_SECRET:-}
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+      - GITHUB_REPO=${GITHUB_REPO:-}
+      - GITHUB_BRANCH=${GITHUB_BRANCH:-main}
     env_file:
       - .env

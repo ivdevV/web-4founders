@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { publishBlogPost } from './blog/publish.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -76,6 +77,8 @@ app.post('/api/lead', async (req, res) => {
     res.status(502).json({ error: 'No pudimos procesar tu solicitud. Inténtalo de nuevo.' });
   }
 });
+
+app.post('/api/blog/publish', publishBlogPost);
 
 app.use('/guia', express.static(path.join(root, 'guia'), { index: 'index.html' }));
 app.use(express.static(path.join(root, 'public'), { index: 'index.html' }));

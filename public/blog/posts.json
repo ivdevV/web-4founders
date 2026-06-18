@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "slug": "despacho-online-profesionales",
+      "title": "Cómo montar tu despacho online sin perder el foco profesional",
+      "excerpt": "Guía práctica para médicos, abogados y consultores que quieren digitalizar su consulta sin convertirse en expertos en tecnología.",
+      "date": "2026-06-10",
+      "category": "Negocio digital",
+      "cover": "/assets/escritorio-planificando.jpg",
+      "readingMinutes": 6,
+      "published": true
+    },
+    {
+      "slug": "marca-personal-abogados",
+      "title": "Marca personal para abogados: lo que importa antes de publicar tu web",
+      "excerpt": "Tres decisiones de posicionamiento que definen si tu despacho transmite confianza o se pierde entre la competencia.",
+      "date": "2026-06-05",
+      "category": "Marca",
+      "cover": "/assets/reunion-equipo.jpg",
+      "readingMinutes": 5,
+      "published": true
+    },
+    {
+      "slug": "primeros-clientes-consultoria",
+      "title": "Primeros clientes en consultoría: un plan de 90 días que funciona",
+      "excerpt": "Cómo pasar de la idea validada a las primeras conversaciones comerciales sin depender de la suerte o del boca a boca aleatorio.",
+      "date": "2026-05-28",
+      "category": "Estrategia",
+      "cover": "/assets/equipo-ventana.jpg",
+      "readingMinutes": 7,
+      "published": true
+    }
+  ]
+}

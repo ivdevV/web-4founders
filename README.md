@@ -31,7 +31,7 @@ docker compose up --build
 - Repo: `git@github-personal:Ivrogo/web-4founders.git`
 - Rama: `main` (solo vía **pull request**)
 - Build: `Dockerfile` en raíz
-- Variables: `N8N_CONTACT_WEBHOOK`, `N8N_LEAD_WEBHOOK`, `PORT=3000`
+- Variables: `N8N_CONTACT_WEBHOOK`, `N8N_LEAD_WEBHOOK`, `BLOG_PUBLISH_SECRET`, `GITHUB_TOKEN`, `GITHUB_REPO`, `GITHUB_BRANCH`, `PORT=3000`
 - Healthcheck: `GET /health`
 
 ## Flujo Git
@@ -46,9 +46,12 @@ docker compose up --build
 | Ruta | Descripción |
 |------|-------------|
 | `/` | Landing corporativa |
+| `/blog` | Listado de artículos |
+| `/blog/{slug}/` | Artículo individual |
 | `/guia` | Guía interactiva (10 fases) |
 | `/api/contact` | Formulario diagnóstico → n8n |
 | `/api/lead` | Formulario lead magnet → n8n |
+| `/api/blog/publish` | Publicar artículo (n8n + IA, Bearer secret) |
 | `/health` | Healthcheck |
 
 ## Agentes y skills
