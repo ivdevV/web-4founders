@@ -253,4 +253,57 @@
     };
   });
 
+  /* ---------- Testimonios carousel ---------- */
+  var testiCarousel = document.querySelector('.testi-carousel');
+  if (testiCarousel) {
+    var testiSlides = [].slice.call(testiCarousel.querySelectorAll('.testi-slide'));
+    var testiDots = [].slice.call(testiCarousel.querySelectorAll('.testi-dot'));
+    var testiPrev = document.getElementById('testiPrev');
+    var testiNext = document.getElementById('testiNext');
+    var testiIdx = 0;
+    var testiTimer = null;
+    var testiPaused = false;
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function setTesti(i) {
+      testiIdx = (i + testiSlides.length) % testiSlides.length;
+      testiSlides.forEach(function (slide, n) {
+        var active = n === testiIdx;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+      testiDots.forEach(function (dot, n) {
+        var active = n === testiIdx;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+
+    function startTestiAuto() {
+      if (reducedMotion || testiTimer || testiSlides.length < 2) return;
+      testiTimer = setInterval(function () {
+        if (!testiPaused) setTesti(testiIdx + 1);
+      }, 7000);
+    }
+
+    function stopTestiAuto() {
+      if (testiTimer) { clearInterval(testiTimer); testiTimer = null; }
+    }
+
+    if (testiPrev) testiPrev.addEventListener('click', function () { setTesti(testiIdx - 1); });
+    if (testiNext) testiNext.addEventListener('click', function () { setTesti(testiIdx + 1); });
+    testiDots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        setTesti(parseInt(dot.getAttribute('data-index'), 10));
+      });
+    });
+    testiCarousel.addEventListener('mouseenter', function () { testiPaused = true; });
+    testiCarousel.addEventListener('mouseleave', function () { testiPaused = false; });
+    testiCarousel.addEventListener('focusin', function () { testiPaused = true; });
+    testiCarousel.addEventListener('focusout', function (e) {
+      if (!testiCarousel.contains(e.relatedTarget)) testiPaused = false;
+    });
+    startTestiAuto();
+  }
+
 })();
