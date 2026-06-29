@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "3099:3099"
+      - "3099:3000"
     environment:
       - NODE_ENV=development
       - N8N_CONTACT_WEBHOOK=${N8N_CONTACT_WEBHOOK:-}
