@@ -174,7 +174,7 @@
   function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
 
   function validateField(field) {
-    var input = field.querySelector('input, textarea');
+    var input = field.querySelector('input, textarea') || field.querySelector('select');
     if (!input) return true;
     var v = input.value.trim();
     var ok = true;
@@ -206,7 +206,7 @@
       var allOk = true;
       fields.forEach(function (f) { if (!validateField(f)) allOk = false; });
       if (!allOk) {
-        var firstBad = form.querySelector('.field.invalid input, .field.invalid textarea');
+        var firstBad = form.querySelector('.field.invalid input, .field.invalid textarea, .field.invalid select');
         if (firstBad) firstBad.focus();
         return;
       }
@@ -283,6 +283,7 @@
       email: form.querySelector('[name="email"]').value.trim(),
       prefijo: form.querySelector('[name="prefijo"]').value,
       telefono: form.querySelector('[name="telefono"]').value.trim(),
+      franjaHoraria: form.querySelector('[name="franjaHoraria"]').value,
       profesion: form.querySelector('[name="profesion"]').value.trim(),
       descripcion: form.querySelector('[name="descripcion"]').value.trim(),
     };
