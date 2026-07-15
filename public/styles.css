@@ -235,7 +235,7 @@ html.anim .mnav { transition: transform .45s var(--ease); }
 .hero-eyebrow { margin-bottom: 30px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .hero-eyebrow .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--champa-dark); }
 .hero h1 {
-  font-size: clamp(44px, 7vw, 86px);
+  font-size: clamp(38px, 6vw, 72px);
   line-height: 1.0;
   letter-spacing: -0.03em;
   color: var(--champa);
@@ -289,7 +289,7 @@ html.anim .mnav { transition: transform .45s var(--ease); }
 /* HERO variant: editorial (type-led) */
 .hero[data-hero="editorial"] .hero-inner { grid-template-columns: 1fr; min-height: auto; }
 .hero[data-hero="editorial"] .hero-media { display: none; }
-.hero[data-hero="editorial"] h1 { font-size: clamp(48px, 10vw, 124px); max-width: 16ch; }
+.hero[data-hero="editorial"] h1 { font-size: clamp(42px, 8.5vw, 104px); max-width: 16ch; }
 .hero[data-hero="editorial"] .hero-text { max-width: none; }
 .hero[data-hero="editorial"] .hero-sub { max-width: 52ch; }
 
