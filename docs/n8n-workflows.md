@@ -28,15 +28,24 @@ PORT=3000
   "email": "ana@ejemplo.com",
   "prefijo": "+34",
   "telefono": "600000000",
+  "pais": "España",
+  "paisIso": "ES",
+  "franjaHoraria": "tarde",
+  "franjaHorariaLabel": "Tarde (15:00–18:00)",
   "profesion": "Abogada",
   "descripcion": "Quiero montar mi despacho online",
   "submittedAt": "2026-06-18T12:00:00.000Z"
 }
 ```
 
+`pais` y `paisIso` los deriva la API del prefijo telefónico (tabla `PAISES_POR_PREFIJO` en
+`server/index.js`); llegan como `null` si el prefijo no está en la tabla. `franjaHoraria` es la
+clave estable para el CRM (`manana`, `mediodia`, `tarde`, `tarde-noche`, `cualquiera`) y
+`franjaHorariaLabel` el texto ya listo para mostrar en emails o notificaciones.
+
 **Pasos sugeridos:**
 
-1. Validar campos obligatorios (`nombre`, `email`, `telefono`, `profesion`, `descripcion`)
+1. Validar campos obligatorios (`nombre`, `email`, `telefono`, `franjaHoraria`, `profesion`, `descripcion`)
 2. Nodo Odoo — crear `crm.lead` o `res.partner` según tu configuración
 3. (Opcional) Notificación email/Slack al equipo
 4. Responder HTTP 200 `{ "ok": true }`

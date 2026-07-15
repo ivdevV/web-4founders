@@ -667,6 +667,17 @@
             <span class="err">Introduce un teléfono válido.</span>
           </div>
           <div class="field" data-field>
+            <select name="franjaHoraria" class="field-select" aria-label="Franja horaria de contacto" required>
+              <option value="" selected disabled>¿Cuándo te viene mejor que te llamemos?</option>
+              <option value="manana">Mañana (9:00–12:00)</option>
+              <option value="mediodia">Mediodía (12:00–15:00)</option>
+              <option value="tarde">Tarde (15:00–18:00)</option>
+              <option value="tarde-noche">Tarde-noche (18:00–21:00)</option>
+              <option value="cualquiera">Cualquier hora me viene bien</option>
+            </select>
+            <span class="err">Dinos cuándo prefieres que te llamemos.</span>
+          </div>
+          <div class="field" data-field>
             <input type="text" name="profesion" placeholder="Tu profesión (médico, abogado…)" required>
             <span class="err">Cuéntanos tu profesión.</span>
           </div>
