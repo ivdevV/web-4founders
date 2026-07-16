@@ -87,8 +87,6 @@ ${cover ? `<meta property="og:image" content="${escapeHtml(cover.startsWith('htt
     <nav class="nav" aria-label="Principal">
       <a href="/#servicios">Servicios</a>
       <a href="/#metodologia">Metodología</a>
-      <a href="/#para-quien">Para quién</a>
-      <a href="/#sobre">Sobre nosotros</a>
       <a href="/blog" class="is-active">Blog</a>
       <a href="/#faq">FAQ</a>
     </nav>
@@ -103,8 +101,6 @@ ${cover ? `<meta property="og:image" content="${escapeHtml(cover.startsWith('htt
 <nav class="mnav" id="mnav" aria-label="Menú móvil">
   <a href="/#servicios">Servicios</a>
   <a href="/#metodologia">Metodología</a>
-  <a href="/#para-quien">Para quién</a>
-  <a href="/#sobre">Sobre nosotros</a>
   <a href="/blog">Blog</a>
   <a href="/#faq">FAQ</a>
   <a href="/#contacto" class="btn">Reserva tu sesión de diagnóstico gratuita <span class="arrow">→</span></a>
@@ -156,8 +152,6 @@ ${cover ? `<meta property="og:image" content="${escapeHtml(cover.startsWith('htt
         <ul>
           <li><a href="/#servicios">Servicios</a></li>
           <li><a href="/#metodologia">Metodología</a></li>
-          <li><a href="/#para-quien">Para quién</a></li>
-          <li><a href="/#sobre">Sobre nosotros</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/#faq">FAQ</a></li>
         </ul>
