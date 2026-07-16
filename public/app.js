@@ -37,6 +37,30 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Robust hash scroll on arrival ----------
+     scroll-behavior:smooth combined with media that loads after
+     first paint can cancel the browser's native jump to a #anchor
+     when arriving from another page (e.g. /blog → /#servicios),
+     leaving the visitor stranded at the top. Re-assert the scroll
+     once the page has settled, offsetting the sticky header. */
+  function scrollToHash() {
+    if (!location.hash || location.hash === '#') return;
+    var target;
+    try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+    catch (e) { return; }
+    if (!target) return;
+    var headerH = header ? header.offsetHeight : 0;
+    var y = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+    window.scrollTo({ top: y, behavior: 'auto' });
+  }
+  if (location.hash) {
+    window.addEventListener('load', function () {
+      scrollToHash();
+      setTimeout(scrollToHash, 250);
+      setTimeout(scrollToHash, 700);
+    });
+  }
+
   /* ---------- Mobile nav ---------- */
   var burger = document.getElementById('burger');
   var mnav = document.getElementById('mnav');

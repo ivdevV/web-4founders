@@ -32,6 +32,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+/* La cabecera es sticky (~78px): margen para que las anclas no queden ocultas debajo. */
+section[id] { scroll-margin-top: 90px; }
 
 body {
   font-family: var(--sans);
