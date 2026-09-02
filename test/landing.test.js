@@ -1,0 +1,65 @@
+import assert from 'node:assert/strict';
+import { execFile } from 'node:child_process';
+import { access, readFile } from 'node:fs/promises';
+import test from 'node:test';
+import { promisify } from 'node:util';
+import { fileURLToPath } from 'node:url';
+import { normalizeContactPayload } from '../server/contact.js';
+
+const execFileAsync = promisify(execFile);
+const publicDir = new URL('../public/', import.meta.url);
+const landingPath = new URL('index.html', publicDir);
+const runtimePath = new URL('support.js', publicDir);
+
+test('public landing uses the supplied 4Founders Studio document', async () => {
+  const html = await readFile(landingPath, 'utf8');
+
+  assert.match(html, /<html lang="es">/);
+  assert.match(html, /<script src="\.\/support\.js"><\/script>/);
+  assert.match(html, /El futuro no se sueña\.<br>Se funda\./);
+  assert.match(html, /id="cursos"/);
+  assert.match(html, /id="mentores"/);
+  assert.match(html, /id="contacto"/);
+});
+
+test('public landing ships its runtime and contact integration', async () => {
+  await access(runtimePath);
+  const html = await readFile(landingPath, 'utf8');
+
+  assert.match(html, /\/api\/contact/);
+  assert.match(html, /Mensaje enviado/);
+});
+
+test('contact payload accepts the supplied course form fields', () => {
+  const payload = normalizeContactPayload({
+    nombre: ' Ana ',
+    email: ' ana@example.com ',
+    prefijo: '🇪🇸 +34',
+    telefono: '600 00 00 00',
+    curso: 'Funda tu gabinete de psicología',
+    mensaje: 'Quiero empezar.',
+  });
+
+  assert.deepEqual(payload, {
+    nombre: 'Ana',
+    email: 'ana@example.com',
+    prefijo: '+34',
+    telefono: '600 00 00 00',
+    franjaHoraria: 'cualquiera',
+    profesion: 'Funda tu gabinete de psicología',
+    descripcion: 'Quiero empezar.',
+    curso: 'Funda tu gabinete de psicología',
+  });
+});
+
+test('public runtime is valid JavaScript', async () => {
+  await execFileAsync(process.execPath, ['--check', fileURLToPath(runtimePath)]);
+});
+
+test('landing header has a mobile overflow guard', async () => {
+  const html = await readFile(landingPath, 'utf8');
+
+  assert.match(html, /class="site-nav"/);
+  assert.match(html, /class="nav-optional"/);
+  assert.match(html, /@media \(max-width: 760px\)/);
+});
