@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { publishBlogPost } from './blog/publish.js';
-import { countryFromPrefix, timeSlotLabel, validateContactPayload } from './contact.js';
+import { buildContactWebhookPayload, countryFromPrefix, timeSlotLabel, validateContactPayload } from './contact.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -42,9 +42,7 @@ app.post('/api/contact', async (req, res) => {
   const { pais = null, paisIso = null } = countryFromPrefix(payload.prefijo);
   try {
     await forwardToN8n(process.env.N8N_CONTACT_WEBHOOK, {
-      source: 'web-4founders',
-      type: 'contact',
-      ...payload,
+      ...buildContactWebhookPayload(payload, process.env.CONTACT_RECIPIENT_EMAIL),
       pais,
       paisIso,
       franjaHorariaLabel: timeSlotLabel(payload.franjaHoraria),

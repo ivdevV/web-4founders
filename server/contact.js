@@ -20,12 +20,23 @@ const PAISES_POR_PREFIJO = {
   '+351': { pais: 'Portugal', paisIso: 'PT' },
 };
 
+const DEFAULT_CONTACT_RECIPIENT_EMAIL = 'clayton@4founderstudio.com';
+
 function isEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
 }
 
 function asTrimmedString(value) {
   return String(value || '').trim();
+}
+
+export function buildContactWebhookPayload(payload, recipientEmail) {
+  return {
+    source: 'web-4founders',
+    type: 'contact',
+    ...payload,
+    destinatarioEmail: asTrimmedString(recipientEmail) || DEFAULT_CONTACT_RECIPIENT_EMAIL,
+  };
 }
 
 export function normalizeContactPayload(body = {}) {
