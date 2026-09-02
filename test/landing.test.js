@@ -4,7 +4,7 @@ import { access, readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
-import { normalizeContactPayload } from '../server/contact.js';
+import { buildContactWebhookPayload, normalizeContactPayload } from '../server/contact.js';
 
 const execFileAsync = promisify(execFile);
 const publicDir = new URL('../public/', import.meta.url);
@@ -30,6 +30,13 @@ test('public landing ships its runtime and contact integration', async () => {
   assert.match(html, /Mensaje enviado/);
 });
 
+test('Instagram CTA points to the 4Founders Studio account', async () => {
+  const html = await readFile(landingPath, 'utf8');
+
+  assert.match(html, /href="https:\/\/www\.instagram\.com\/4founderstudio\/"/);
+  assert.match(html, /aria-label="Instagram de 4Founders Studio: @4founderstudio"/);
+});
+
 test('contact payload accepts the supplied course form fields', () => {
   const payload = normalizeContactPayload({
     nombre: ' Ana ',
@@ -50,6 +57,22 @@ test('contact payload accepts the supplied course form fields', () => {
     descripcion: 'Quiero empezar.',
     curso: 'Funda tu gabinete de psicología',
   });
+});
+
+test('contact webhook payload includes the requested recipient email', () => {
+  const payload = buildContactWebhookPayload({
+    nombre: 'Ana',
+    email: 'ana@example.com',
+    prefijo: '+34',
+    telefono: '600 00 00 00',
+    franjaHoraria: 'cualquiera',
+    profesion: 'Psicóloga',
+    descripcion: 'Quiero empezar.',
+    curso: 'Funda tu gabinete de psicología',
+  }, 'clayton@4founderstudio.com');
+
+  assert.equal(payload.destinatarioEmail, 'clayton@4founderstudio.com');
+  assert.equal(payload.type, 'contact');
 });
 
 test('public runtime is valid JavaScript', async () => {

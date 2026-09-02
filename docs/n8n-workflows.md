@@ -6,6 +6,7 @@ Los formularios de la web envían JSON a la API (`server/index.js`), que reenví
 
 ```env
 N8N_CONTACT_WEBHOOK=https://tu-n8n.example.com/webhook/contact
+CONTACT_RECIPIENT_EMAIL=clayton@4founderstudio.com
 N8N_LEAD_WEBHOOK=https://tu-n8n.example.com/webhook/lead
 BLOG_PUBLISH_SECRET=genera-un-secreto-largo-aleatorio
 GITHUB_TOKEN=ghp_...
@@ -24,6 +25,7 @@ PORT=3000
 {
   "source": "web-4founders",
   "type": "contact",
+  "destinatarioEmail": "clayton@4founderstudio.com",
   "nombre": "Ana García",
   "email": "ana@ejemplo.com",
   "prefijo": "+34",
@@ -47,7 +49,7 @@ clave estable para el CRM (`manana`, `mediodia`, `tarde`, `tarde-noche`, `cualqu
 
 1. Validar campos obligatorios (`nombre`, `email`, `telefono`, `franjaHoraria`, `profesion`, `descripcion`)
 2. Nodo Odoo — crear `crm.lead` o `res.partner` según tu configuración
-3. (Opcional) Notificación email/Slack al equipo
+3. Nodo email — enviar la notificación a `{{$json.destinatarioEmail}}` (por defecto `clayton@4founderstudio.com`)
 4. Responder HTTP 200 `{ "ok": true }`
 
 ## Workflow 2 — Lead guía (`POST /api/lead`)

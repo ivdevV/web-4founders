@@ -31,7 +31,7 @@ docker compose up --build
 - Repo: `git@github-personal:Ivrogo/web-4founders.git`
 - Rama: `main` (solo vía **pull request**)
 - Build: `Dockerfile` en raíz
-- Variables: `N8N_CONTACT_WEBHOOK`, `N8N_LEAD_WEBHOOK`, `BLOG_PUBLISH_SECRET`, `GITHUB_TOKEN`, `GITHUB_REPO`, `GITHUB_BRANCH`, `PORT=3000`
+- Variables: `N8N_CONTACT_WEBHOOK`, `CONTACT_RECIPIENT_EMAIL`, `N8N_LEAD_WEBHOOK`, `BLOG_PUBLISH_SECRET`, `GITHUB_TOKEN`, `GITHUB_REPO`, `GITHUB_BRANCH`, `PORT=3000`
 - Healthcheck: `GET /health`
 
 ## Flujo Git
