@@ -111,6 +111,21 @@
     font-size: 16px;
     line-height: 1.6;
   }
+  .landing-blog-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 48px;
+    padding: 15px 24px;
+    border-radius: 7px;
+    background: #E8604C;
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background .25s ease, transform .25s ease;
+  }
+  .landing-blog-cta:hover { background: #D14E3A; transform: translateY(-2px); }
+  .landing-blog-cta span { font-size: 17px; }
 
   @media (max-width: 760px) {
     .site-nav { padding: 0 16px !important; }
@@ -402,6 +417,9 @@
 
       <div id="landingBlogGrid" class="landing-blog-grid" aria-live="polite" aria-busy="true">
         <p class="landing-blog-empty">Cargando artículos…</p>
+      </div>
+      <div data-reveal="1">
+        <a class="landing-blog-cta" href="/blog/">Ver todos los artículos <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
