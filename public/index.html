@@ -29,6 +29,89 @@
   ::selection { background: #E8604C; color: #fff; }
   .site-nav .nav-primary,
   .site-nav .nav-optional { white-space: nowrap; }
+
+  #blog { scroll-margin-top: 72px; }
+  .landing-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+  .landing-blog-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(30,42,56,0.1);
+    border-radius: 10px;
+    transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .landing-blog-card:hover {
+    border-color: rgba(232,96,76,0.55);
+    box-shadow: 0 16px 36px rgba(30,42,56,0.1);
+    transform: translateY(-4px);
+  }
+  .landing-blog-card a { color: #1E2A38; }
+  .landing-blog-card-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #E8D9B0;
+  }
+  .landing-blog-card-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: saturate(.78) sepia(.12);
+    transition: transform .45s ease;
+  }
+  .landing-blog-card:hover .landing-blog-card-media img { transform: scale(1.04); }
+  .landing-blog-card-body { padding: 26px 28px 28px; }
+  .landing-blog-card-category {
+    display: block;
+    margin-bottom: 12px;
+    color: #E8604C;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .landing-blog-card-title {
+    margin: 0 0 14px;
+    font-family: Fraunces, serif;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -.015em;
+  }
+  .landing-blog-card-excerpt {
+    margin: 0 0 22px;
+    color: rgba(30,42,56,0.64);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .landing-blog-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    color: rgba(30,42,56,0.48);
+    font-size: 12px;
+  }
+  .landing-blog-card-arrow {
+    margin-left: auto;
+    color: #E8604C;
+    font-size: 20px;
+    line-height: 1;
+  }
+  .landing-blog-empty {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: rgba(30,42,56,0.6);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
   @media (max-width: 760px) {
     .site-nav { padding: 0 16px !important; }
     .site-nav .nav-inner { padding: 0 !important; gap: 12px !important; }
@@ -38,6 +121,17 @@
     .site-nav .nav-brand > span:last-child > span:last-child { font-size: 9px !important; }
     .site-nav .nav-optional { display: none !important; }
     .site-nav .nav-primary { padding: 10px 12px !important; font-size: 12px !important; }
+    #blog { padding: 96px 20px !important; }
+    .landing-blog-grid { grid-template-columns: 1fr; gap: 20px; }
+    .landing-blog-card-body { padding: 22px 22px 24px; }
+    .landing-blog-card-title { font-size: 23px; }
+  }
+  @media (min-width: 761px) and (max-width: 980px) {
+    .landing-blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .landing-blog-card,
+    .landing-blog-card-media img { transition: none; }
   }
 </style>
 </helmet>
@@ -56,6 +150,7 @@
       <div id="nav-links" style="display: flex; align-items: center; gap: 30px; font-size: 14px;">
         <a href="#cursos" data-navlink="cursos" style="color: rgba(30,42,56,0.55); padding: 3px 0; border-bottom: 1px solid transparent; transition: color .25s ease, border-color .25s ease;" style-hover="color: #1E2A38;">Cursos</a>
         <a href="#mentores" data-navlink="mentores" style="color: rgba(30,42,56,0.55); padding: 3px 0; border-bottom: 1px solid transparent; transition: color .25s ease, border-color .25s ease;" style-hover="color: #1E2A38;">Mentores</a>
+        <a href="#blog" data-navlink="blog" style="color: rgba(30,42,56,0.55); padding: 3px 0; border-bottom: 1px solid transparent; transition: color .25s ease, border-color .25s ease;" style-hover="color: #1E2A38;">Blog</a>
         <a href="#contacto" data-navlink="contacto" style="color: rgba(30,42,56,0.55); padding: 3px 0; border-bottom: 1px solid transparent; transition: color .25s ease, border-color .25s ease;" style-hover="color: #1E2A38;">Contacto</a>
       </div>
       <div style="display: flex; align-items: center; gap: 10px;">
@@ -297,11 +392,25 @@
     </div>
   </section>
 
+  <section id="blog" style="background: #F4F1EC; padding: 130px 32px;">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div data-reveal="1" style="max-width: 760px; margin-bottom: 56px;">
+        <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #E8604C; margin-bottom: 26px;">04 · Desde la práctica</div>
+        <h2 style="font-family: Fraunces, serif; font-weight: 500; font-size: clamp(36px, 4.6vw, 58px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 24px; text-wrap: pretty;">Todos los artículos.<br>Ideas para fundar con criterio.</h2>
+        <p style="font-size: 18px; line-height: 1.6; color: rgba(30,42,56,0.6); margin: 0; text-wrap: pretty;">Estrategia, marca y negocio digital para convertir una buena idea en un negocio que funciona.</p>
+      </div>
+
+      <div id="landingBlogGrid" class="landing-blog-grid" aria-live="polite" aria-busy="true">
+        <p class="landing-blog-empty">Cargando artículos…</p>
+      </div>
+    </div>
+  </section>
+
   <section id="contacto" style="background: #F4F1EC; padding: 130px 32px;">
     <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 72px; align-items: start;">
 
       <div data-reveal="1">
-        <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #E8604C; margin-bottom: 26px;">04 · Hablemos</div>
+        <div style="font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #E8604C; margin-bottom: 26px;">05 · Hablemos</div>
         <h2 style="font-family: Fraunces, serif; font-weight: 500; font-size: clamp(36px, 4.6vw, 54px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 24px;">¿Tienes dudas antes de empezar?</h2>
         <p style="font-size: 18px; line-height: 1.65; color: rgba(30,42,56,0.6); margin: 0 0 40px; max-width: 460px; text-wrap: pretty;">Escríbenos y te respondemos en menos de 24h. También puedes hablar con nosotros directamente.</p>
 
@@ -443,6 +552,7 @@ class Component extends DCLogic {
   componentDidMount() {
     this._syncViewport();
     this._syncNav();
+    this._loadBlog();
     window.addEventListener('resize', this._syncViewport);
     window.addEventListener('scroll', this._syncNav, { passive: true });
     if (this.props.revealOnScroll === false) return;
@@ -460,6 +570,73 @@ class Component extends DCLogic {
     nodes.forEach(n => io.observe(n));
     this._fallback = setTimeout(() => nodes.forEach(show), 3000);
   }
+
+  _escapeBlogHtml = value => String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+  _formatBlogDate = value => {
+    const parts = String(value || '').split('-');
+    if (parts.length !== 3) return this._escapeBlogHtml(value);
+    const date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    if (Number.isNaN(date.getTime())) return this._escapeBlogHtml(value);
+    const months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+    return date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear();
+  };
+
+  _loadBlog = async () => {
+    const grid = document.getElementById('landingBlogGrid');
+    if (!grid) return;
+
+    try {
+      const response = await fetch('./blog/posts.json', { cache: 'no-cache' });
+      if (!response.ok) throw new Error('posts.json unavailable');
+      const data = await response.json();
+      const posts = (Array.isArray(data.posts) ? data.posts : [])
+        .filter(post => post.published !== false)
+        .sort((a, b) => String(b.date).localeCompare(String(a.date)));
+
+      if (!posts.length) {
+        grid.innerHTML = '<p class="landing-blog-empty">Todavía no hay artículos publicados.</p>';
+        grid.setAttribute('aria-busy', 'false');
+        return;
+      }
+
+      grid.innerHTML = posts.map(post => {
+        const title = this._escapeBlogHtml(post.title);
+        const slug = encodeURIComponent(String(post.slug || ''));
+        const cover = post.cover
+          ? '<div class="landing-blog-card-media"><img src="' + this._escapeBlogHtml(post.cover) + '" alt="' + title + '" loading="lazy" width="640" height="400"></div>'
+          : '<div class="landing-blog-card-media" aria-hidden="true"></div>';
+        const reading = post.readingMinutes
+          ? '<span aria-hidden="true">·</span><span>' + this._escapeBlogHtml(post.readingMinutes) + ' min de lectura</span>'
+          : '';
+
+        return '<article class="landing-blog-card">' +
+          '<a href="/blog/' + slug + '/" aria-label="Leer: ' + title + '">' +
+            cover +
+            '<div class="landing-blog-card-body">' +
+              '<span class="landing-blog-card-category">' + this._escapeBlogHtml(post.category) + '</span>' +
+              '<h3 class="landing-blog-card-title">' + title + '</h3>' +
+              '<p class="landing-blog-card-excerpt">' + this._escapeBlogHtml(post.excerpt) + '</p>' +
+              '<div class="landing-blog-card-meta">' +
+                '<time datetime="' + this._escapeBlogHtml(post.date) + '">' + this._formatBlogDate(post.date) + '</time>' +
+                reading +
+                '<span class="landing-blog-card-arrow" aria-hidden="true">↗</span>' +
+              '</div>' +
+            '</div>' +
+          '</a>' +
+        '</article>';
+      }).join('');
+      grid.setAttribute('aria-busy', 'false');
+    } catch (error) {
+      grid.innerHTML = '<p class="landing-blog-empty">No hemos podido cargar los artículos. Vuelve a intentarlo en unos minutos.</p>';
+      grid.setAttribute('aria-busy', 'false');
+    }
+  };
 
   componentWillUnmount() {
     clearTimeout(this._fallback);

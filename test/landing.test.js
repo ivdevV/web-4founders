@@ -22,6 +22,24 @@ test('public landing uses the supplied 4Founders Studio document', async () => {
   assert.match(html, /id="contacto"/);
 });
 
+test('public landing exposes the blog as a first-class section', async () => {
+  const html = await readFile(landingPath, 'utf8');
+
+  assert.match(html, /href="#blog"[^>]*>Blog<\/a>/);
+  assert.match(html, /data-navlink="blog"/);
+  assert.match(html, /<section id="blog"/);
+  assert.match(html, /id="landingBlogGrid"/);
+  assert.match(html, /Todos los artículos/);
+});
+
+test('landing blog renders every published article from the shared post feed', async () => {
+  const html = await readFile(landingPath, 'utf8');
+
+  assert.match(html, /fetch\(['"]\.\/blog\/posts\.json['"]/);
+  assert.match(html, /post\.published !== false/);
+  assert.match(html, /\.sort\(\(a, b\)/);
+});
+
 test('public landing ships its runtime and contact integration', async () => {
   await access(runtimePath);
   const html = await readFile(landingPath, 'utf8');
