@@ -40,6 +40,16 @@ test('landing blog renders every published article from the shared post feed', a
   assert.match(html, /\.sort\(\(a, b\)/);
 });
 
+test('landing blog includes a CTA to the dedicated blog page', async () => {
+  const html = await readFile(landingPath, 'utf8');
+  const blogStart = html.indexOf('<section id="blog"');
+  const contactStart = html.indexOf('<section id="contacto"');
+  const ctaPosition = html.indexOf('class="landing-blog-cta"');
+
+  assert.ok(ctaPosition > blogStart && ctaPosition < contactStart);
+  assert.match(html, /<a class="landing-blog-cta" href="\/blog\/">Ver todos los artículos/);
+});
+
 test('public landing ships its runtime and contact integration', async () => {
   await access(runtimePath);
   const html = await readFile(landingPath, 'utf8');
